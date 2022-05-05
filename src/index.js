@@ -70,24 +70,24 @@ class LinkedList {
 
 function mergeLinkedLists(headOne, headTwo) {
   // Write your code here.
-  let obj1 = {};
-  let current1 = headOne;
-  let current2 = headTwo;
+  let slow = null;
+  let fast1 = headOne;
+  let fast2 = headTwo;
 
-  // traverse headOne
-  while (current1 !== null) {
-    current1 = current1.next;
+  // traverse fast
+  while (fast1 !== null) {
+    fast1 = fast1.next;
   }
 
   // traverse headTwo
-  while (current2 !== null) {
-    current2 = current2.next;
+  while (fast2 !== null) {
+    fast2 = fast2.next;
   }
 
   for (let key in headOne) {
-    if (headOne[key] !== headTwo[key]) {
-      obj1.push(headOne[key]);
-      obj2.push(headTwo[key]);
+    if ((headOne[key] > slow && headOne[key].next = fast)) {
+      slow.next = headOne[key];
+      headOne[key].next = fast;
     }
   }
 }
