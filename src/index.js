@@ -75,13 +75,8 @@ function mergeLinkedLists(headOne, headTwo) {
   let fast2 = headTwo;
 
   // traverse fast
-  while (fast1 !== null) {
+  while (fast1 !== null && fast2 !== null) {
     fast1 = fast1.next;
-  }
-
-  // traverse headTwo
-  while (fast2 !== null) {
-    fast2 = fast2.next;
   }
 
   for (let key in headOne) {
