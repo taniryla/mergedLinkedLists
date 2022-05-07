@@ -76,7 +76,15 @@ function mergeLinkedLists(headOne, headTwo) {
 
   // traverse fast
   while (fast1 !== null && fast2 !== null) {
-    fast1 = fast1.next;
+    if (fast1.value < fast2.value) {
+      fast1 = fast1.next;
+    } else {
+      // if fast2.value < fast1.value
+      // move slow to equal fast2
+      // move fast.next to equal fast1
+      // move fast2 to fast2.next
+      // point fast1.next to fast2
+    }
   }
 
   for (let key in headOne) {
