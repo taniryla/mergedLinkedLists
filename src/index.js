@@ -90,11 +90,5 @@ function mergeLinkedLists(headOne, headTwo) {
       fast1.next = fast2;
     }
   }
-
-  for (let key in headOne) {
-    if ((headOne[key] > slow && headOne[key].next = fast)) {
-      slow.next = headOne[key];
-      headOne[key].next = fast;
-    }
-  }
+  return slow;
 }
