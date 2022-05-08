@@ -56,6 +56,8 @@
 // 15.  Can you check your result?
 // 16.  Can you check the argument?
 // 17.  Can you derive the result differently?
+recursive;
+
 // 18.  Can you see it at a glance?
 // 19.  Can you make the code DRYer and refactor?
 // 20.  Can you improve the performance?
@@ -68,35 +70,41 @@ class LinkedList {
   }
 }
 
-function mergeLinkedLists(headOne, headTwo) {
-  // Write your code here.
-  let slow = null;
-  let fast1 = headOne;
-  let fast2 = headTwo;
+// function mergeLinkedLists(headOne, headTwo) {
+//   // Write your code here.
+//   let slow = null;
+//   let fast1 = headOne;
+//   let fast2 = headTwo;
 
-  // traverse fast
-  while (fast1 !== null && fast2 !== null) {
-    if (fast1.value < fast2.value) {
-      slow = fast1;
-      fast1 = fast1.next;
-    } else {
-      // if fast2.value < fast1.value
-      // move slow to equal fast2
-      if (slow !== null) {
-        slow.next = fast2;
-      }
-      slow = fast2;
-      // move fast2 to fast2.next
-      fast2 = fast2.next;
-      // move slow.next to equal fast1
-      slow.next = fast1;
-    }
-  }
-  if (fast1 === null) {
-    slow.next = fast2;
-  }
-  if (headOne.value < headTwo.value) {
-    return headOne;
-  }
-  return headTwo;
+//   // traverse fast
+//   while (fast1 !== null && fast2 !== null) {
+//     if (fast1.value < fast2.value) {
+//       slow = fast1;
+//       fast1 = fast1.next;
+//     } else {
+//       // if fast2.value < fast1.value
+//       // move slow to equal fast2
+//       if (slow !== null) {
+//         slow.next = fast2;
+//       }
+//       slow = fast2;
+//       // move fast2 to fast2.next
+//       fast2 = fast2.next;
+//       // move slow.next to equal fast1
+//       slow.next = fast1;
+//     }
+//   }
+//   if (fast1 === null) {
+//     slow.next = fast2;
+//   }
+//   if (headOne.value < headTwo.value) {
+//     return headOne;
+//   }
+//   return headTwo;
+// }
+
+function mergeLinkedLists(headOne, headTwo) {
+  recursiveMerge(headOne, headTwo, null);
 }
+
+function recursiveMerge(fast1, fast2, slow) {}
