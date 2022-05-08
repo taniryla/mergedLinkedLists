@@ -87,11 +87,12 @@ function mergeLinkedLists(headOne, headTwo) {
       slow = fast2;
       // move fast2 to fast2.next
       fast2 = fast2.next;
-      // move fast.next to equal fast1
-      fast2.next = fast1;
-      // point fast1.next to fast2
-      fast1.next = fast2;
+      // move slow.next to equal fast1
+      slow.next = fast1;
     }
   }
-  return slow;
+  if (fast1 === null) {
+    slow.next = fast2;
+  }
+  headOne.value < headTwo.value ? headOne : headTwo;
 }
