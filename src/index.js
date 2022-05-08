@@ -77,6 +77,7 @@ function mergeLinkedLists(headOne, headTwo) {
   // traverse fast
   while (fast1 !== null && fast2 !== null) {
     if (fast1.value < fast2.value) {
+      slow = fast1;
       fast1 = fast1.next;
     } else {
       // if fast2.value < fast1.value
@@ -94,5 +95,8 @@ function mergeLinkedLists(headOne, headTwo) {
   if (fast1 === null) {
     slow.next = fast2;
   }
-  return headOne.value < headTwo.value ? headOne : headTwo;
+  if (headOne.value < headTwo.value) {
+    return headOne;
+  }
+  return headTwo;
 }
