@@ -105,31 +105,25 @@ class LinkedList {
 
 function mergeLinkedLists(headOne, headTwo) {
   recursiveMerge(headOne, headTwo, null);
-}
-
-function recursiveMerge(fast1, fast2, slow) {
-  if (fast1 !== null && fast2 !== null) {
-    if (fast1.value < fast2.value) {
-      slow = fast1;
-      fast1 = fast1.next;
-    } else {
-      // if fast2.value < fast1.value
-      // move slow to equal fast2
-      if (slow !== null) {
-        slow.next = fast2;
-      }
-      slow = fast2;
-      // move fast2 to fast2.next
-      fast2 = fast2.next;
-      // move slow.next to equal fast1
-      slow.next = fast1;
-    }
-  }
-  if (fast1 === null) {
-    slow.next = fast2;
-  }
   if (headOne.value < headTwo.value) {
     return headOne;
   }
   return headTwo;
+}
+
+function recursiveMerge(fast1, fast2, slow) {
+  if (fast1 === null) {
+    slow.next = fast2;
+  }
+  // if fast2.value < fast1.value
+  if (fast1.value < fast2.value) {
+    recursiveMerge(fast1.next, fast2, fast1);
+  } else {
+    // move slow to equal fast2
+    if (slow !== null) {
+      slow.next = fast2;
+    }
+    let newFast2 = fast2.next;
+    recursiveMerge(fast1, newFast2, fast2);
+  }
 }
