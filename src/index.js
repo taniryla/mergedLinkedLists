@@ -115,6 +115,9 @@ function recursiveMerge(fast1, fast2, slow) {
   if (fast1 === null) {
     slow.next = fast2;
   }
+  if (fast2 === null) {
+    return;
+  }
   // if fast2.value < fast1.value
   if (fast1.value < fast2.value) {
     recursiveMerge(fast1.next, fast2, fast1);
